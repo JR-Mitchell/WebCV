@@ -23,6 +23,32 @@ $ npm run build
 ## Using the template
 
 The structure, style and text and image content of the CV may all be customised by editing the files in `src/setup`.
-Further instructions for doing so will be added as this repo is populated. 
 
 The one exception to this is the title of the html document, which should be changed by modifying the `<title>` element in `src/index.html`.
+
+### `src/setup/app.json`
+
+- Change `drawerWidth` to change the width of the side contents drawer
+- Change `cvTitle` to change the title displayed at the top of the page
+
+### `src/setup/structure.json`
+
+This file is a list of pages, in the order they will be shown.
+You may add or remove pages as you please.
+
+Each page has the properties:
+
+- `pageTitle`: the title of the page
+- `sections`: a list of the sections in this page, in the order they will be shown
+
+Each section has the properties:
+
+- `sectionTitle`: the title of the section
+- `element`: currently unused
+
+### `src/setup/style.json`
+
+Currently, this object only has one (optional) property: `MUITheme`.
+This overrides the base Material UI theme.
+For more information on the values this can take, see [the Material UI page on theming](https://material-ui.com/customization/theming/).
+Note that, as this is a JSON, colours from the `@material-ui` library, such as `red[500]` cannot be used.
