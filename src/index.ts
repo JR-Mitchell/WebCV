@@ -6,6 +6,6 @@ import ReactDOM from 'react-dom'
 import App from 'views/App/app'
 
 ReactDOM.render(
-    React.createElement(App, {}, null),
+    React.createElement(App, {drawerWidth:256}, null),
     document.getElementById('root')
 )
