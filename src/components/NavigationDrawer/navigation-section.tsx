@@ -30,7 +30,7 @@ interface NavigationSectionListProps {
  * Provides indented buttons for navigating the sections of the given
  * page, for use in the <NavigationDrawer> component.
  */
-function NavigationSectionList(props) {
+function NavigationSectionList(props: NavigationSectionListProps) {
     return <Collapse in={props.in}>
         <List>
             {props.sections.map((title:string)=>{

@@ -13,7 +13,7 @@ import Typography from '@material-ui/core/Typography';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 
 //Local imports
-import { SectionObject, PageObject, Pages } from './structure';
+import { SectionObject, PageObject, Pages } from 'views/App/structure';
 import SectionList from './navigation-section';
 
 //Setup imports

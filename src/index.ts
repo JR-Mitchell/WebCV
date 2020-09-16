@@ -6,6 +6,6 @@ import ReactDOM from 'react-dom'
 import App from 'views/App/app'
 
 ReactDOM.render(
-    React.createElement(App, {drawerWidth:256}, null),
+    React.createElement(App, {drawerWidth:256,cvTitle:"TODO: Make title load in from setup/app.json"}, null),
     document.getElementById('root')
 )

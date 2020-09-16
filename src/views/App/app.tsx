@@ -5,7 +5,8 @@ import React from 'react';
 import Box from '@material-ui/core/Box';
 
 //Local component imports
-import Drawer from 'components/NavigationDrawer/navigation-drawer'
+import Drawer from 'components/NavigationDrawer/navigation-drawer';
+import TitleBar from 'components/TitleBar/title-bar';
 
 /**
  * Props for the <App> component.
@@ -15,7 +16,11 @@ interface AppProps {
     /**
      * Width of the drawer, in px
      */
-    drawerWidth: number
+    drawerWidth: number,
+    /**
+     * Title of the CV
+     */
+    cvTitle: string
 }
 
 /**
@@ -54,6 +59,12 @@ class App extends React.Component<AppProps,AppState> {
         //Access state variables
         const drawerOpen = this.state.drawerOpen;
 
+        //Setup to ensure that the drawer smoothly pushes the body content across
+        let bodyStyle = {
+            transition: 'margin-left 225ms cubic-bezier(0, 0, 0.2, 1)',
+            marginLeft: drawerOpen ? 256 : 0
+        }
+
         return (
             <Box
                 width="100%"
@@ -64,6 +75,13 @@ class App extends React.Component<AppProps,AppState> {
                     width={this.props.drawerWidth}
                     closeDrawerCallback={()=>{this.toggleDrawer();}}
                 />
+                <div style={bodyStyle}>
+                    <TitleBar
+                        cvTitle={this.props.cvTitle}
+                        sectionTitle="TODO: implement current section"
+                        menuButtonCallback={()=>{this.toggleDrawer();}}
+                    />
+                </div>
             </Box>
         );
     }
