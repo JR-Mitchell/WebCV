@@ -12,6 +12,7 @@ import { Element, scroller } from 'react-scroll'
 //Local component imports
 import Drawer from 'components/NavigationDrawer/navigation-drawer';
 import TitleBar from 'components/TitleBar/title-bar';
+import NextPageButton from 'components/NextPageButton/next-page-button';
 
 //Other local imports
 import { Pages } from './structure';
@@ -116,6 +117,9 @@ class App extends React.Component<AppProps,AppState> {
             marginLeft: drawerOpen ? 256 : 0
         }
 
+        //Create next page button only if not the last page
+        let nextPageButton = pages.getPageByIndex(activePage+1) && <NextPageButton onClickCallback={()=>{this.setActivePage(activePage+1);}} />
+
         return (
             <Box
                 width="100%"
@@ -153,6 +157,7 @@ class App extends React.Component<AppProps,AppState> {
                                 </Box>
                             </Element>
                         })}
+                        {nextPageButton}
                     </Container>
                 </div>
             </Box>

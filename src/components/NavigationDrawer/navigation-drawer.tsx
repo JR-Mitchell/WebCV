@@ -85,6 +85,18 @@ class NavigationDrawer extends React.Component<NavigationDrawerProps,NavigationD
     }
 
     /**
+     * React componentDidUpdate method
+     *
+     * Used to check if the active page has changed and thus should be selected
+     */
+    componentDidUpdate(newProps) {
+        const oldActive = this.props.activePage;
+        if (oldActive !== newProps.activePage) {
+            this.setSelectedPage(oldActive);
+        }
+    }
+
+    /**
      * React render method
      */
     render() {
