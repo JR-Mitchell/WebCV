@@ -9,8 +9,15 @@
     "dev": "webpack-dev-server --config wp.config.js --mode development",
     "dev:localhost": "webpack-dev-server --config wp.config.js --mode development --host 0.0.0.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JR-Mitchell/WebCV.git"
+  },
   "author": "JR-Mitchell",
   "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/JR-Mitchell/WebCV/issues"
+  },
   "devDependencies": {
     "@babel/core": "^7.11.4",
     "@babel/preset-react": "^7.10.4",
