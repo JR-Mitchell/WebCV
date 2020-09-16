@@ -12,12 +12,11 @@ import Typography from '@material-ui/core/Typography';
 //Imports from @material-ui/icons module
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 
-//Local imports
-import { SectionObject, PageObject, Pages } from 'views/App/structure';
+//Local components import
 import SectionList from './navigation-section';
 
-//Setup imports
-const pages = new Pages(require('setup/structure.json'));
+//Other local imports
+import { Pages } from 'views/App/structure';
 
 /**
  * Props for the <NavigationDrawer> component.
@@ -36,7 +35,19 @@ interface NavigationDrawerProps {
     /**
      * Callback to call when the 'close drawer' chevron button is pressed
      */
-    closeDrawerCallback: ()=>void
+    closeDrawerCallback: ()=>void,
+    /**
+     * Pages object representing the CV's pages
+     */
+    pages: Pages,
+    /**
+     * Index of the active CV page
+     */
+    activePage: number,
+    /**
+     * Callback to call when a section outside of the current page is selected
+     */
+    sectionRedirectCallback: (pageIndex: number, sectionIndex: number) => void
 }
 
 /**
@@ -48,6 +59,10 @@ interface NavigationDrawerState {
      * The index of the currently selected page
      */
     selectedPage: number
+    /**
+     * The index of the currently selected section
+     */
+    selectedSection: number
 }
 
 
@@ -66,7 +81,7 @@ class NavigationDrawer extends React.Component<NavigationDrawerProps,NavigationD
      */
     constructor(props) {
         super(props);
-        this.state = {selectedPage:0};
+        this.state = {selectedPage: 0, selectedSection: 0};
     }
 
     /**
@@ -75,6 +90,7 @@ class NavigationDrawer extends React.Component<NavigationDrawerProps,NavigationD
     render() {
         //Access state variables
         const selectedPage: number = this.state.selectedPage;
+        const selectedSection: number = this.state.selectedSection;
 
         return <Drawer
             variant="persistent"
@@ -88,9 +104,10 @@ class NavigationDrawer extends React.Component<NavigationDrawerProps,NavigationD
                 </IconButton>
             </div>
             <List>
-                {pages.map((page,index)=>{
+                {this.props.pages.map((page,index)=>{
                     let pageTitle: string = page.pageTitle;
                     let isSelected: boolean = index === selectedPage;
+                    let isActive: boolean = index === this.props.activePage;
                     return <Fragment key={pageTitle}>
                         <ListItem
                             button
@@ -104,6 +121,13 @@ class NavigationDrawer extends React.Component<NavigationDrawerProps,NavigationD
                         <SectionList
                             in={isSelected}
                             sections={page.getSectionTitleList()}
+                            isActive={isActive}
+                            selectedSection={isActive ? selectedSection : -1}
+                            clickCallback={
+                                isActive
+                                ? (sectionIndex: number)=>{this.setSelectedSection(sectionIndex);}
+                                : (sectionIndex: number)=>{this.props.sectionRedirectCallback(index,sectionIndex);}
+                            }
                         />
                     </Fragment>
                 })}
@@ -116,6 +140,13 @@ class NavigationDrawer extends React.Component<NavigationDrawerProps,NavigationD
      */
     setSelectedPage(index:number) {
         this.setState({selectedPage:index});
+    }
+
+    /**
+     * Sets the index of the selected section
+     */
+    setSelectedSection(index:number) {
+        this.setState({selectedSection:index});
     }
 
 }

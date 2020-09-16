@@ -20,15 +20,15 @@
         "pageTitle": "Demo Page 2",
         "sections": [
             {
-                "sectionTitle": "Section 1",
+                "sectionTitle": "Section 4",
                 "element": ""
             },
             {
-                "sectionTitle": "Section 2",
+                "sectionTitle": "Section 5",
                 "element": ""
             },
             {
-                "sectionTitle": "Section 3",
+                "sectionTitle": "Section 6",
                 "element": ""
             }
         ]

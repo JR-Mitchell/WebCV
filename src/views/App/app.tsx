@@ -3,10 +3,21 @@ import React from 'react';
 
 //Imports from @material-ui/core module
 import Box from '@material-ui/core/Box';
+import Container from '@material-ui/core/Container';
+import Typography from '@material-ui/core/Typography';
+
+//Imports from react-scroll
+import { Element, scroller } from 'react-scroll'
 
 //Local component imports
 import Drawer from 'components/NavigationDrawer/navigation-drawer';
 import TitleBar from 'components/TitleBar/title-bar';
+
+//Other local imports
+import { Pages } from './structure';
+
+//Setup imports
+const pages = new Pages(require('setup/structure.json'));
 
 /**
  * Props for the <App> component.
@@ -31,7 +42,16 @@ interface AppState {
     /**
      * Whether or not the navigational drawer should be open/visible.
      */
-    drawerOpen: boolean
+    drawerOpen: boolean,
+    /**
+     * The index of the currently active page
+     */
+    activePage: number,
+    /**
+     * The title of the section to scroll to if a new page has just been switched to.
+     * Is used in this.componentDidUpdate() and then set to undefined
+     */
+    sectionToScrollTo?: string
 }
 
 /**
@@ -49,7 +69,34 @@ class App extends React.Component<AppProps,AppState> {
      */
     constructor(props) {
         super(props);
-        this.state = {drawerOpen:true};
+        this.state = {drawerOpen: true, activePage: 0};
+    }
+
+    /**
+     * React componentDidMount method
+     * Scrolls to the first section in the page, if one exists
+     */
+    componentDidMount() {
+        this.setActivePage(0,0);
+    }
+
+    /**
+     * React componentDidUpdate method
+     * If a new page has been loaded, scrolls to sectionToScrollTo
+     */
+    componentDidUpdate() {
+        const sectionToScrollTo = this.state.sectionToScrollTo;
+        if (sectionToScrollTo) {
+            scroller.scrollTo(
+                sectionToScrollTo,
+                {
+                    duration: 500,
+                    offset: -96,
+                    smooth: true
+                }
+            );
+            this.setState({sectionToScrollTo: null});
+        }
     }
 
     /**
@@ -58,6 +105,7 @@ class App extends React.Component<AppProps,AppState> {
     render() {
         //Access state variables
         const drawerOpen = this.state.drawerOpen;
+        const activePage = this.state.activePage;
 
         //Setup to ensure that the drawer smoothly pushes the body content across
         let bodyStyle = {
@@ -74,6 +122,9 @@ class App extends React.Component<AppProps,AppState> {
                     open={drawerOpen}
                     width={this.props.drawerWidth}
                     closeDrawerCallback={()=>{this.toggleDrawer();}}
+                    pages={pages}
+                    activePage={activePage}
+                    sectionRedirectCallback={(pageIndex: number, sectionIndex: number) => {this.setActivePage(pageIndex,sectionIndex);}}
                 />
                 <div style={bodyStyle}>
                     <TitleBar
@@ -81,6 +132,25 @@ class App extends React.Component<AppProps,AppState> {
                         sectionTitle="TODO: implement current section"
                         menuButtonCallback={()=>{this.toggleDrawer();}}
                     />
+                    <Container>
+                        {pages.getPageByIndex(activePage).map((section) => {
+                            let sectionTitle: string = section.sectionTitle;
+                            return <Element
+                                name={sectionTitle}
+                                label={sectionTitle}
+                                key={sectionTitle}
+                            >
+                                <Box height={1400}>
+                                    <Typography variant='h6'>
+                                        {sectionTitle}
+                                    </Typography>
+                                    This is currently a placeholder container.
+                                    <br />
+                                    TODO: make sections contained the elements specified in sections.json.
+                                </Box>
+                            </Element>
+                        })}
+                    </Container>
                 </div>
             </Box>
         );
@@ -92,6 +162,21 @@ class App extends React.Component<AppProps,AppState> {
     toggleDrawer() {
         const drawerOpen = this.state.drawerOpen;
         this.setState({drawerOpen:!drawerOpen});
+    }
+
+    /**
+     * Sets the active page by page index, scrolling to the given section if
+     * one is provided, or to the first section otherwise
+     *
+     * @param {number} pageIndex: the index of the page to open
+     * @param {number} sectionIndex: the section of the page to autoscroll to,
+     *      optional (defaults to 0)
+     */
+    setActivePage(pageIndex: number, sectionIndex: number = 0) {
+        let sectionTitle = pages.getPageByIndex(pageIndex)
+            ?.getSectionByIndex(sectionIndex)
+            ?.sectionTitle;
+        this.setState({activePage: pageIndex, sectionToScrollTo: sectionTitle});
     }
 }
 

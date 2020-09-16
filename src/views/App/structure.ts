@@ -133,6 +133,18 @@ class PageObject {
         });
     }
 
+    /**
+     * Wrapper for map() function of underlying array
+     *
+     * @param {(section: SectionObject, index?: number, array?: SectionObject[])=>{T}} callback:
+     *      function that is called for every section in the PageObject object.
+     *
+     * @returns {T[]} mapped: array containing the result of callback(section [, index [, array]])
+     *      for each section in the PageObject object
+     */
+    map<T>(callback: (section: SectionObject, index?: number, array?: SectionObject[])=>T): T[] {
+        return this._sections.map(callback);
+    }
 }
 
 class Pages {
