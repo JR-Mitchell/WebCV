@@ -16,6 +16,7 @@ import { Element, scroller } from 'react-scroll'
 import Drawer from 'components/NavigationDrawer/navigation-drawer';
 import TitleBar from 'components/TitleBar/title-bar';
 import NextPageButton from 'components/NextPageButton/next-page-button';
+import BodySection from 'views/Section/section.ts';
 
 //Other local imports
 import { Pages } from './structure';
@@ -26,6 +27,9 @@ const style = require('setup/style.json');
 
 //Set default theme up
 const theme = createMuiTheme(style.MUITheme || {} as ThemeOptions);
+
+//Set up valid body elements
+
 
 /**
  * Props for the <App> component.
@@ -155,13 +159,11 @@ class App extends React.Component<AppProps,AppState> {
                                 label={sectionTitle}
                                 key={sectionTitle}
                             >
-                                <Box height={1400}>
+                                <Box>
                                     <Typography variant='h6'>
                                         {sectionTitle}
                                     </Typography>
-                                    This is currently a placeholder container.
-                                    <br />
-                                    TODO: make sections contained the elements specified in sections.json.
+                                    <BodySection {...section.element}/>
                                 </Box>
                             </Element>
                         })}

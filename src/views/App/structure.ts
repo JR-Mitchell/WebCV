@@ -1,17 +1,16 @@
 //Contains interfaces and objects relevant for interfacing with the information stored in setup/structure.json
 
+//Local imports
+import { SectionProps } from 'views/Section/section.ts';
+
 /**
  * Interface used for parsing a particular section
  */
-interface SectionInterface {
+interface SectionInterface extends SectionProps {
     /**
      * The title of the section
      */
-    sectionTitle: string,
-    /**
-     * The name of the component to render for this section
-     */
-    element: string
+    sectionTitle: string
 }
 
 /**
@@ -37,9 +36,9 @@ class SectionObject {
      */
     sectionTitle: string;
     /**
-     * The name of the component to render for this section
+     * The component to render
      */
-    element: string;
+    element: SectionProps;
     /**
      * The number of the section
      */
@@ -53,8 +52,9 @@ class SectionObject {
      * @param {number} sectionNumber: the index of the section in its page
      */
     constructor(rawJson: SectionInterface, sectionNumber: number) {
-        this.sectionTitle = rawJson.sectionTitle;
-        this.element = rawJson.element;
+        let {sectionTitle, ...element} = rawJson
+        this.sectionTitle = sectionTitle;
+        this.element = element;
         this.sectionNumber = sectionNumber
     }
 }
