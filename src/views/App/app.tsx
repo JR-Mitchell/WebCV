@@ -6,6 +6,9 @@ import Box from '@material-ui/core/Box';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 
+//Imports from @material-ui/core/styles module
+import { createMuiTheme, ThemeProvider, ThemeOptions } from '@material-ui/core/styles';
+
 //Imports from react-scroll
 import { Element, scroller } from 'react-scroll'
 
@@ -19,6 +22,10 @@ import { Pages } from './structure';
 
 //Setup imports
 const pages = new Pages(require('setup/structure.json'));
+const style = require('setup/style.json');
+
+//Set default theme up
+const theme = createMuiTheme(style.MUITheme || {} as ThemeOptions);
 
 /**
  * Props for the <App> component.
@@ -121,6 +128,7 @@ class App extends React.Component<AppProps,AppState> {
         let nextPageButton = pages.getPageByIndex(activePage+1) && <NextPageButton onClickCallback={()=>{this.setActivePage(activePage+1);}} />
 
         return (
+            <ThemeProvider theme={theme}>
             <Box
                 width="100%"
                 height="100%"
@@ -161,6 +169,7 @@ class App extends React.Component<AppProps,AppState> {
                     </Container>
                 </div>
             </Box>
+            </ThemeProvider>
         );
     }
 
