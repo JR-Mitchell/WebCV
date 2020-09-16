@@ -14,6 +14,7 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 
 //Local imports
 import { SectionObject, PageObject, Pages } from './structure';
+import SectionList from './navigation-section';
 
 //Setup imports
 const pages = new Pages(require('setup/structure.json'));
@@ -43,6 +44,10 @@ interface NavigationDrawerProps {
  * More detail is given in comments alongside the definitions.
  */
 interface NavigationDrawerState {
+    /**
+     * The index of the currently selected page
+     */
+    selectedPage: number
 }
 
 
@@ -54,7 +59,23 @@ interface NavigationDrawerState {
  * different sections.
  */
 class NavigationDrawer extends React.Component<NavigationDrawerProps,NavigationDrawerState> {
+    /**
+     * Constructor method
+     *
+     * @param {NavigationDrawerProps} props: the component props
+     */
+    constructor(props) {
+        super(props);
+        this.state = {selectedPage:0};
+    }
+
+    /**
+     * React render method
+     */
     render() {
+        //Access state variables
+        const selectedPage: number = this.state.selectedPage;
+
         return <Drawer
             variant="persistent"
             open={this.props.open}
@@ -69,19 +90,34 @@ class NavigationDrawer extends React.Component<NavigationDrawerProps,NavigationD
             <List>
                 {pages.map((page,index)=>{
                     let pageTitle: string = page.pageTitle;
+                    let isSelected: boolean = index === selectedPage;
                     return <Fragment key={pageTitle}>
                         <ListItem
                             button
+                            onClick={()=>this.setSelectedPage(index)}
+                            selected={isSelected}
                         >
-                            <Typography variant="overline">
+                            <Typography variant={isSelected ? "button" : "overline"}>
                                 {pageTitle}
                             </Typography>
                         </ListItem>
+                        <SectionList
+                            in={isSelected}
+                            sections={page.getSectionTitleList()}
+                        />
                     </Fragment>
                 })}
             </List>
         </Drawer>
     }
+
+    /**
+     * Sets the index of the selected page
+     */
+    setSelectedPage(index:number) {
+        this.setState({selectedPage:index});
+    }
+
 }
 
 export default NavigationDrawer;
