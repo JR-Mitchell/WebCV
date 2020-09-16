@@ -37,20 +37,43 @@ interface AppState {
  * - a main section for each page of the CV to be rendered in
  */
 class App extends React.Component<AppProps,AppState> {
+    /**
+     * Constructor method
+     *
+     * @param {AppProps} props: the component props
+     */
     constructor(props) {
         super(props);
         this.state = {drawerOpen:true};
     }
 
+    /**
+     * React render method
+     */
     render() {
+        //Access state variables
+        const drawerOpen = this.state.drawerOpen;
+
         return (
             <Box
                 width="100%"
                 height="100%"
             >
-                <Drawer open={this.state.drawerOpen} width={this.props.drawerWidth}/>
+                <Drawer
+                    open={drawerOpen}
+                    width={this.props.drawerWidth}
+                    closeDrawerCallback={()=>{this.toggleDrawer();}}
+                />
             </Box>
         );
+    }
+
+    /**
+     * Toggles the open state of the drawer
+     */
+    toggleDrawer() {
+        const drawerOpen = this.state.drawerOpen;
+        this.setState({drawerOpen:!drawerOpen});
     }
 }
 

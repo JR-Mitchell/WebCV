@@ -1,36 +1,34 @@
 [
     {
-        "name": "Demo Page 1",
-        "key": "Demo1",
-        "subtabs": [
+        "pageTitle": "Demo Page 1",
+        "sections": [
             {
-                "name": "Section 1"
+                "sectionTitle": "Section 1",
                 "element": ""
             },
             {
-                "name": "Section 2"
+                "sectionTitle": "Section 2",
                 "element": ""
             },
             {
-                "name": "Section 3"
+                "sectionTitle": "Section 3",
                 "element": ""
             }
         ]
     },
     {
-        "name": "Demo Page 2",
-        "key": "Demo2",
-        "subtabs": [
+        "pageTitle": "Demo Page 2",
+        "sections": [
             {
-                "name": "Section 1"
+                "sectionTitle": "Section 1",
                 "element": ""
             },
             {
-                "name": "Section 2"
+                "sectionTitle": "Section 2",
                 "element": ""
             },
             {
-                "name": "Section 3"
+                "sectionTitle": "Section 3",
                 "element": ""
             }
         ]
