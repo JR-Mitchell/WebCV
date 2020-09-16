@@ -3,9 +3,12 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 //Local .tsx imports
-import App from 'views/App/app'
+import { App, AppProps } from 'views/App/app'
+
+//Setup imports
+const appProps = require('setup/app.json') as AppProps;
 
 ReactDOM.render(
-    React.createElement(App, {drawerWidth:256,cvTitle:"TODO: Make title load in from setup/app.json"}, null),
+    React.createElement(App, appProps, null),
     document.getElementById('root')
 )

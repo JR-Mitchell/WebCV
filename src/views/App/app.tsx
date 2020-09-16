@@ -107,6 +107,9 @@ class App extends React.Component<AppProps,AppState> {
         const drawerOpen = this.state.drawerOpen;
         const activePage = this.state.activePage;
 
+        //Work out active page title
+        const activeTitle = pages.getPageByIndex(activePage)?.pageTitle;
+
         //Setup to ensure that the drawer smoothly pushes the body content across
         let bodyStyle = {
             transition: 'margin-left 225ms cubic-bezier(0, 0, 0.2, 1)',
@@ -129,7 +132,7 @@ class App extends React.Component<AppProps,AppState> {
                 <div style={bodyStyle}>
                     <TitleBar
                         cvTitle={this.props.cvTitle}
-                        sectionTitle="TODO: implement current section"
+                        sectionTitle={activeTitle}
                         menuButtonCallback={()=>{this.toggleDrawer();}}
                     />
                     <Container>
@@ -180,4 +183,4 @@ class App extends React.Component<AppProps,AppState> {
     }
 }
 
-export default App;
+export { App, AppProps };
