@@ -160,7 +160,7 @@ class App extends React.Component<AppProps,AppState> {
                                 key={sectionTitle}
                             >
                                 <Box>
-                                    <Typography variant='h6'>
+                                    <Typography variant='h5'>
                                         {sectionTitle}
                                     </Typography>
                                     <BodySection {...section.element}/>

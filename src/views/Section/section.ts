@@ -6,10 +6,14 @@ import Typography from '@material-ui/core/Typography';
 
 //Local component imports
 import DefaultSection from 'components/DefaultSection/default-section';
+import ContactInfo from 'components/ContactInfo/contact-info';
+import PersonalProfile from 'components/PersonalProfile/personal-profile';
 
 //Lookup table
 const elements = {
-    default: DefaultSection
+    default: DefaultSection,
+    ContactInfo: ContactInfo,
+    PersonalProfile: PersonalProfile
 }
 
 type SectionChild = string | SectionProps;
