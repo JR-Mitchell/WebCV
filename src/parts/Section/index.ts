@@ -8,12 +8,14 @@ import Typography from '@material-ui/core/Typography';
 import DefaultSection from 'components/DefaultSection';
 import ContactInfo from 'components/ContactInfo';
 import PersonalProfile from 'components/PersonalProfile';
+import SkillsOverview from 'components/SkillsOverview';
 
 //Lookup table
 const elements = {
     default: DefaultSection,
     ContactInfo: ContactInfo,
-    PersonalProfile: PersonalProfile
+    PersonalProfile: PersonalProfile,
+    SkillsOverview: SkillsOverview
 }
 
 type SectionChild = string | SectionProps;
