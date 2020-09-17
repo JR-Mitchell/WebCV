@@ -7,8 +7,8 @@ import Grid from '@material-ui/core/Grid';
 import { GridSize } from '@material-ui/core/Grid';
 
 //Local imports
-import ContactInfo from 'components/ContactInfo/contact-info';
-import { ContactInfoProps } from 'components/ContactInfo/contact-info';
+import ContactInfo from 'components/ContactInfo';
+import { ContactInfoProps } from 'components/ContactInfo';
 
 /**
  * Interface with info about any of the three non-contact-info quadrants

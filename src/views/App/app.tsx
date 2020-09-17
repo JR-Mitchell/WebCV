@@ -13,10 +13,12 @@ import { createMuiTheme, ThemeProvider, ThemeOptions } from '@material-ui/core/s
 import { Element, scroller } from 'react-scroll'
 
 //Local component imports
-import Drawer from 'components/NavigationDrawer/navigation-drawer';
-import TitleBar from 'components/TitleBar/title-bar';
-import NextPageButton from 'components/NextPageButton/next-page-button';
-import BodySection from 'views/Section/section.ts';
+import NextPageButton from 'components/NextPageButton';
+
+//Local part imports
+import Drawer from 'parts/NavigationDrawer';
+import TitleBar from 'parts/TitleBar';
+import BodySection from 'parts/Section';
 
 //Other local imports
 import { Pages } from './structure';

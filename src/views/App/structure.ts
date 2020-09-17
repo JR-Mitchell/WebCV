@@ -1,7 +1,7 @@
 //Contains interfaces and objects relevant for interfacing with the information stored in setup/structure.json
 
 //Local imports
-import { SectionProps } from 'views/Section/section.ts';
+import { SectionProps } from 'parts/Section';
 
 /**
  * Interface used for parsing a particular section

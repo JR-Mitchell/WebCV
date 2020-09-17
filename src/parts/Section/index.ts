@@ -5,9 +5,9 @@ import React from 'react';
 import Typography from '@material-ui/core/Typography';
 
 //Local component imports
-import DefaultSection from 'components/DefaultSection/default-section';
-import ContactInfo from 'components/ContactInfo/contact-info';
-import PersonalProfile from 'components/PersonalProfile/personal-profile';
+import DefaultSection from 'components/DefaultSection';
+import ContactInfo from 'components/ContactInfo';
+import PersonalProfile from 'components/PersonalProfile';
 
 //Lookup table
 const elements = {
