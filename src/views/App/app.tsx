@@ -5,6 +5,7 @@ import React from 'react';
 import Box from '@material-ui/core/Box';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
+import Divider from '@material-ui/core/Divider';
 
 //Imports from @material-ui/core/styles module
 import { createMuiTheme, ThemeProvider, ThemeOptions } from '@material-ui/core/styles';
@@ -12,13 +13,11 @@ import { createMuiTheme, ThemeProvider, ThemeOptions } from '@material-ui/core/s
 //Imports from react-scroll
 import { Element, scroller } from 'react-scroll'
 
-//Local component imports
-import NextPageButton from 'components/NextPageButton';
-
 //Local part imports
 import Drawer from 'parts/NavigationDrawer';
 import TitleBar from 'parts/TitleBar';
 import BodySection from 'parts/Section';
+import NextPageButton from 'parts/NextPageButton';
 
 //Other local imports
 import { Pages } from './structure';
@@ -62,6 +61,10 @@ interface AppState {
      */
     activePage: number,
     /**
+     * The padding to add on to the end of the page to ensure a section can be scrolled to
+     */
+    bonusPadding: number,
+    /**
      * The title of the section to scroll to if a new page has just been switched to.
      * Is used in this.componentDidUpdate() and then set to undefined
      */
@@ -83,7 +86,7 @@ class App extends React.Component<AppProps,AppState> {
      */
     constructor(props) {
         super(props);
-        this.state = {drawerOpen: true, activePage: 0};
+        this.state = {drawerOpen: true, activePage: 0, bonusPadding: 0};
     }
 
     /**
@@ -165,6 +168,7 @@ class App extends React.Component<AppProps,AppState> {
                                     <Typography variant='h5'>
                                         {sectionTitle}
                                     </Typography>
+                                    <Divider />
                                     <BodySection {...section.element}/>
                                 </Box>
                             </Element>

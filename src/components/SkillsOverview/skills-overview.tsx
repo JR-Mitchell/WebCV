@@ -82,7 +82,6 @@ class SkillsOverview extends React.Component<SkillsOverviewProps,SkillsOverviewS
      */
     constructor(props) {
         super(props);
-        console.log(props);
         this.state = {popoverText:"Testing"};
     }
 
@@ -95,7 +94,9 @@ class SkillsOverview extends React.Component<SkillsOverviewProps,SkillsOverviewS
         let additionalProps = skill.additionalText
             ? {
                 deleteIcon:<KeyboardArrowDownIcon />,
-                onDelete:(event)=>{this.setPopover(event.currentTarget.parentElement,skill.additionalText);}
+                onDelete:(event)=>{this.setPopover(event.currentTarget.parentElement,skill.additionalText);},
+                clickable:true,
+                onClick:(event)=>{this.setPopover(event.currentTarget,skill.additionalText);}
               }
             : {}
         return  <Chip

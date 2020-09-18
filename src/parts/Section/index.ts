@@ -9,13 +9,19 @@ import DefaultSection from 'components/DefaultSection';
 import ContactInfo from 'components/ContactInfo';
 import PersonalProfile from 'components/PersonalProfile';
 import SkillsOverview from 'components/SkillsOverview';
+import ChronologyItem from 'components/ChronologyItem';
+import EmphasisParagraph from 'components/EmphasisParagraph';
+import VSpace from 'components/VSpace';
 
 //Lookup table
 const elements = {
     default: DefaultSection,
     ContactInfo: ContactInfo,
     PersonalProfile: PersonalProfile,
-    SkillsOverview: SkillsOverview
+    SkillsOverview: SkillsOverview,
+    ChronologyItem: ChronologyItem,
+    EmphasisParagraph: EmphasisParagraph,
+    VSpace: VSpace
 }
 
 type SectionChild = string | SectionProps;

@@ -53,6 +53,7 @@ function NavigationSectionList(props: NavigationSectionListProps) {
             {props.sections.map((title, index)=>{
                 let additionalProps = props.isActive
                     ? {
+                        onClick: () => {setTimeout(()=>{props.clickCallback(index)},501);},
                         component: Link,
                         to: title,
                         spy: true,
