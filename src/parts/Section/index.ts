@@ -12,15 +12,16 @@ import SkillsOverview from 'components/SkillsOverview';
 import ChronologyItem from 'components/ChronologyItem';
 import EmphasisParagraph from 'components/EmphasisParagraph';
 import VSpace from 'components/VSpace';
+import TwoColumn from 'components/TwoColumn';
 
 //Lookup table
 const elements = {
-    default: DefaultSection,
     ContactInfo: ContactInfo,
     PersonalProfile: PersonalProfile,
     SkillsOverview: SkillsOverview,
     ChronologyItem: ChronologyItem,
     EmphasisParagraph: EmphasisParagraph,
+    TwoColumn: TwoColumn,
     VSpace: VSpace
 }
 
