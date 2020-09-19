@@ -44,7 +44,9 @@ Each page has the properties:
 Each section has the properties:
 
 - `sectionTitle`: the title of the section
-- `element`: currently unused
+- `element`: the name of the element making up the section. Can be anything in src/components. If excluded, will just be a normal <div>.
+- `props`: the props to pass to the created element. Each set of props is documented with comments in its relevant `.tsx` file.
+- `children`: a list of children elements to render in the element. Each may be either a string, in which case it will become formatted text, or an object like a section but without the sectionTitle (i.e `{element, props `and/or `children}` 
 
 ### `src/setup/style.json`
 
