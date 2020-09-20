@@ -11,8 +11,9 @@ import PersonalProfile from 'components/PersonalProfile';
 import SkillsOverview from 'components/SkillsOverview';
 import ChronologyItem from 'components/ChronologyItem';
 import EmphasisParagraph from 'components/EmphasisParagraph';
-import VSpace from 'components/VSpace';
 import TwoColumn from 'components/TwoColumn';
+import References from 'components/References';
+import VSpace from 'components/VSpace';
 
 //Lookup table
 const elements = {
@@ -22,6 +23,7 @@ const elements = {
     ChronologyItem: ChronologyItem,
     EmphasisParagraph: EmphasisParagraph,
     TwoColumn: TwoColumn,
+    References: References,
     VSpace: VSpace
 }
 

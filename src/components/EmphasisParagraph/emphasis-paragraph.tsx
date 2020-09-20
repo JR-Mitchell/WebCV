@@ -28,12 +28,17 @@ interface EmphasisParagraphProps {
  * A paragraph of text, with all words in props.emphasise emphasised.
  */
 function EmphasisParagraph(props: EmphasisParagraphProps) {
+    //Enforce lower case matches
+    let emphasise = props.emphasise?.map((item)=>{
+        return item.toLowerCase();
+    });
+
     let text: any = props.text;
     let formatted: React.ReactNode;
-    if (props.emphasise?.length > 0) {
-        const regexp = new RegExp("("+props.emphasise.join("|")+"|.)","g");
+    if (emphasise?.length > 0) {
+        const regexp = new RegExp("("+emphasise.join("|")+"|.)","ig");
         text = Array.from(text.matchAll(regexp)).map((match,index) => {
-            return props.emphasise.includes(match[0])
+            return emphasise.includes(match[0].toLowerCase())
                 ? <b key={index}><i>{match[0]}</i></b>
                 : match[0]
         });

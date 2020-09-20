@@ -124,6 +124,53 @@
         "pageTitle": "Demo Page 2",
         "sections": [
             {
+                "sectionTitle": "Work Experience",
+                "children": [
+                    {
+                        "element": "ChronologyItem",
+                        "props":{
+                            "title":"Enterprises Incorporated",
+                            "date": "2018-2020",
+                            "subtitle": "Telephone Sanitiser"
+                        }
+                    },
+                    {
+                        "element": "TwoColumn",
+                        "props":{"splitRatio":0.2},
+                        "children":[
+                            {
+                                "element": "EmphasisParagraph",
+                                "props":{
+                                    "text":"Role",
+                                    "emphasise": ["Role"]
+                                }
+                            },
+                            {
+                                "element": "EmphasisParagraph",
+                                "props":{
+                                    "text":"Organised and catalogued the systematic and thorough cleaning of every telephone handset in the company.",
+                                    "emphasise": ["systematic","organised","catalogued"]
+                                }
+                            },
+                            {
+                                "element": "EmphasisParagraph",
+                                "props":{
+                                    "text":"Reason I Left",
+                                    "emphasise": ["reason i left"]
+                                }
+                            },
+                            {
+                                "element": "EmphasisParagraph",
+                                "props":{
+                                    "text":"Transfer from planitary surface onto B Ark in order to avoid enormous mutant star-goat",
+                                    "emphasise": ["B Ark","enormous mutant star-goat"]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
                 "sectionTitle": "Lorem 1",
                 "element": "TwoColumn",
                 "props":{"splitRatio":0.4},
@@ -131,11 +178,18 @@
             },
             {
                 "sectionTitle": "Lorem 2",
-                "children":["Integer sit amet tristique tellus. Fusce viverra nibh ac maximus ultricies. Curabitur velit tellus, cursus et nisi non, tincidunt tincidunt ex. Vivamus id augue leo. Maecenas suscipit porttitor vestibulum. Praesent tincidunt tincidunt ante, quis suscipit diam fermentum et. Vestibulum consectetur, nulla quis vestibulum ultrices, leo nisl posuere lectus, non lacinia elit felis et diam. Ut ornare vitae ante faucibus interdum. Sed scelerisque et tellus quis maximus. Cras lacinia accumsan justo in consectetur. Nam ac tortor est. Mauris orci neque, eleifend id imperdiet non, venenatis ac ipsum. Nullam eu eros at tortor condimentum venenatis. Nulla fermentum massa felis, quis pretium sem egestas et. Pellentesque non nibh non ante sollicitudin suscipit. Aliquam in vulputate arcu.","Mauris risus sapien, tempor id velit vulputate, viverra sodales nisi. Curabitur dui ex, laoreet in risus a, consequat sollicitudin sapien. Nulla quis augue vitae erat ornare imperdiet eget ut metus. Fusce blandit dui nec velit pulvinar, et rutrum tortor blandit. Morbi velit nulla, porttitor vel arcu vel, finibus scelerisque ante. Ut vehicula magna vel sapien pretium, id interdum felis iaculis. Vestibulum sit amet porta magna. Donec tristique tristique varius. Donec quis nisi nec lectus viverra elementum. Quisque ex enim, euismod in turpis in, suscipit hendrerit felis. Maecenas maximus, leo et elementum efficitur, nisi massa aliquet turpis, ut vulputate mauris nibh vel metus. Sed ac elementum nisi. Phasellus eu ex eu lorem rutrum scelerisque dignissim eu ligula. Duis tellus mi, posuere a felis nec, facilisis sodales tellus.","Praesent pellentesque accumsan nibh vulputate vestibulum. Nam ut magna tempus enim eleifend porta. Curabitur at facilisis sem. Maecenas ultrices vestibulum vehicula. Nam est neque, dictum et mi non, tristique aliquam neque. Praesent a finibus sem, quis tincidunt velit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed luctus pharetra pharetra. Praesent aliquet tincidunt sapien, sed tincidunt lectus faucibus ac. In condimentum quam nec tristique lobortis. Donec eget neque posuere, consequat ligula eu, ultrices lorem. Donec tincidunt metus quis tincidunt interdum. Etiam orci enim, malesuada id feugiat ut, scelerisque et sem. Phasellus sit amet nisl congue, condimentum nulla et, iaculis sem. Donec auctor velit vitae feugiat tincidunt. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas."]
+                "children":["Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod eu leo at auctor. Nam id eleifend magna, at feugiat risus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed in maximus ex. Suspendisse finibus mattis leo, ut ornare arcu sodales at. In eget tempor lacus, in blandit sem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed in urna a dui faucibus consectetur sit amet eu felis. Fusce vel justo eget lacus sagittis sagittis. Duis tincidunt ornare neque, vel venenatis sem posuere quis. Fusce commodo rhoncus interdum. Pellentesque tempus, lorem id posuere commodo, mi urna pulvinar diam, sed auctor dolor mauris eu dolor. Curabitur nibh velit, posuere rhoncus laoreet a, viverra nec lorem. Nulla tristique at felis id tempus. Curabitur egestas magna et elit varius, convallis gravida lectus eleifend.","Quisque semper fermentum dui, a euismod ligula tincidunt at. In hac habitasse platea dictumst. Nam eu massa vehicula, efficitur metus ac, consectetur nisi. Aliquam ut diam sed nibh interdum volutpat. Etiam lobortis nunc nibh, a luctus felis mollis in. Etiam cursus mattis nunc, nec convallis eros rutrum quis. Nulla semper et tellus id vehicula.","Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer fermentum lectus ex, in aliquam urna varius a. Sed sed mi dictum, egestas felis non, luctus eros. Praesent porta augue non tellus faucibus, eu condimentum lectus malesuada. Vestibulum at consectetur turpis, non molestie risus. Aenean suscipit, neque eget viverra pretium, enim mauris scelerisque enim, id ultrices justo mi sit amet nunc. Vivamus in dapibus turpis. Sed ullamcorper efficitur purus a sollicitudin. Pellentesque aliquam nulla et nisi volutpat, at pretium purus consectetur. Vestibulum sed ornare magna. Vestibulum ornare congue laoreet. Mauris dui orci, fringilla ac accumsan sed, lobortis a augue. Etiam faucibus lectus eros, sed pulvinar nulla commodo eu. Nulla convallis posuere nisl ut blandit. Donec dignissim lacus sed libero ultricies mattis porta at orci. Donec vitae condimentum nisl."]
             },
             {
-                "sectionTitle": "Lorem 3",
-                "children":["Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod eu leo at auctor. Nam id eleifend magna, at feugiat risus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed in maximus ex. Suspendisse finibus mattis leo, ut ornare arcu sodales at. In eget tempor lacus, in blandit sem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed in urna a dui faucibus consectetur sit amet eu felis. Fusce vel justo eget lacus sagittis sagittis. Duis tincidunt ornare neque, vel venenatis sem posuere quis. Fusce commodo rhoncus interdum. Pellentesque tempus, lorem id posuere commodo, mi urna pulvinar diam, sed auctor dolor mauris eu dolor. Curabitur nibh velit, posuere rhoncus laoreet a, viverra nec lorem. Nulla tristique at felis id tempus. Curabitur egestas magna et elit varius, convallis gravida lectus eleifend.","Quisque semper fermentum dui, a euismod ligula tincidunt at. In hac habitasse platea dictumst. Nam eu massa vehicula, efficitur metus ac, consectetur nisi. Aliquam ut diam sed nibh interdum volutpat. Etiam lobortis nunc nibh, a luctus felis mollis in. Etiam cursus mattis nunc, nec convallis eros rutrum quis. Nulla semper et tellus id vehicula.","Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer fermentum lectus ex, in aliquam urna varius a. Sed sed mi dictum, egestas felis non, luctus eros. Praesent porta augue non tellus faucibus, eu condimentum lectus malesuada. Vestibulum at consectetur turpis, non molestie risus. Aenean suscipit, neque eget viverra pretium, enim mauris scelerisque enim, id ultrices justo mi sit amet nunc. Vivamus in dapibus turpis. Sed ullamcorper efficitur purus a sollicitudin. Pellentesque aliquam nulla et nisi volutpat, at pretium purus consectetur. Vestibulum sed ornare magna. Vestibulum ornare congue laoreet. Mauris dui orci, fringilla ac accumsan sed, lobortis a augue. Etiam faucibus lectus eros, sed pulvinar nulla commodo eu. Nulla convallis posuere nisl ut blandit. Donec dignissim lacus sed libero ultricies mattis porta at orci. Donec vitae condimentum nisl."]
+                "sectionTitle": "References",
+                "element": "References",
+                "props": {
+                    "belowTitleText": "Further contact information available at request",
+                    "firstRef": ["Number One","Head of Golgafrincham B Ark"],
+                    "secondRef": ["Dr. Palindromic Cimordnilaprd","Masters Thesis Supervisor","Department of Silly Made Up Things","University of Hard Knocks"],
+                    "firstContact": {"homephone":"226 7709"},
+                    "secondContact": {"email":"cimordnilaprd_palindromic@fake_email.hard_knocks.ac.uk"}
+                }
             }
         ]
     }

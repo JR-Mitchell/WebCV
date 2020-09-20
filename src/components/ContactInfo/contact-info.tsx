@@ -19,7 +19,7 @@ import HttpIcon from '@material-ui/icons/Http';
 /**
  * Array for mapping ContactInfo props to elements
  */
-const InfoList = [
+export const contactInfoMap = [
     {name:"address",icon:HomeIcon},
     {name:"homephone",icon:PhoneIcon},
     {name:"mobile",icon:PhoneAndroidIcon},
@@ -101,7 +101,7 @@ function ContactInfo(props: ContactInfoProps) {
     return <div style={{display:"flex"}}>
         {avatar}
         <List dense>
-            {InfoList.map((item)=>{
+            {contactInfoMap.map((item)=>{
                 return props[item.name] && <ListItem key={item.name}>
                     <item.icon fontSize="small" style={{marginRight:16}}/>
                     <Typography>

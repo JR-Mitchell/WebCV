@@ -1,1 +1,1 @@
-export { default, ContactInfoProps } from './contact-info';
+export { default, contactInfoMap, ContactInfoProps } from './contact-info';

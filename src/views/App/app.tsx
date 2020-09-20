@@ -171,6 +171,7 @@ class App extends React.Component<AppProps,AppState> {
                                     <Divider />
                                     <BodySection {...section.element}/>
                                 </Box>
+                                <br />
                             </Element>
                         })}
                         {nextPageButton}

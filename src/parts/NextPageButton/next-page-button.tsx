@@ -25,6 +25,8 @@ interface NextPageButtonProps {
 function NextPageButton(props: NextPageButtonProps) {
     return <div style={{display: "flex"}}>
         <Button
+            variant="contained"
+            color="secondary"
             endIcon={<NavigateNextIcon />}
             size="large"
             onClick={()=>{props.onClickCallback();}}

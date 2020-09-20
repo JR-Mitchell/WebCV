@@ -1,7 +1,8 @@
 # WebCV
 HTML and JavaScript CV website template using Material-UI with scrolling navigation and prefab sections
 
-__Note:__ I highly recommend against making your personal information public on the internet. Most modern browsers opening a HTML file will automatically load <script>, <img> etc. tags from the folder that the HTML file is in, and so if you choose to make your CV in this unconventional way, it is recommended that you put the output `index.html`, `main.js` and any other private assets in a folder, test from your computer that everything loads in properly, and then send the zipped folder alongside instructions.  
+__Note:__ I highly recommend against making your personal information public on the internet.
+Most modern browsers opening a HTML file will automatically load `<script>`, `<img>` etc. tags from the folder that the HTML file is in, and so if you choose to make your CV in this unconventional way, it is recommended that you put the output `index.html`, `main.js` and any other private assets in a folder, test from your computer that everything loads in properly, and then send the zipped folder alongside instructions.  
 
 ## Install
 
