@@ -33,10 +33,29 @@ function EmphasisParagraph(props: EmphasisParagraphProps) {
         return item.toLowerCase();
     });
 
+    //Escape characters that would otherwise be interpreted as regex operations
+    let escapedEmphasise = emphasise?.map((item) => {
+        return item.replace(
+        /\\/g, "\\\\").replace(
+        /\+/g, "\\+").replace(
+        /\$/g, "\\$").replace(
+        /\./g, "\\.").replace(
+        /\|/g, "\\|").replace(
+        /\?/g, "\\?").replace(
+        /\*/g, "\\*").replace(
+        /\(/g, "\\(").replace(
+        /\)/g, "\\)").replace(
+        /\{/g, "\\{").replace(
+        /\}/g, "\\}").replace(
+        /\[/g, "\\[").replace(
+        /\]/g, "\\]").replace(
+        /\^/g, "\\^");
+    });
+
     let text: any = props.text;
     let formatted: React.ReactNode;
     if (emphasise?.length > 0) {
-        const regexp = new RegExp("("+emphasise.join("|")+"|.)","ig");
+        const regexp = new RegExp("("+escapedEmphasise.join("|")+"|.)","ig");
         text = Array.from(text.matchAll(regexp)).map((match,index) => {
             return emphasise.includes(match[0].toLowerCase())
                 ? <b key={index}><i>{match[0]}</i></b>
