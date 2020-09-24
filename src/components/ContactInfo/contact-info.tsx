@@ -15,6 +15,7 @@ import PhoneAndroidIcon from '@material-ui/icons/PhoneAndroid';
 import EmailIcon from '@material-ui/icons/Email';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import HttpIcon from '@material-ui/icons/Http';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
 
 /**
  * Array for mapping ContactInfo props to elements
@@ -25,6 +26,7 @@ export const contactInfoMap = [
     {name:"mobile",icon:PhoneAndroidIcon},
     {name:"email",icon:EmailIcon,isLink:true},
     {name:"github",icon:GitHubIcon,isLink:true},
+    {name:"linkedin",icon:LinkedInIcon,isLink:true},
     {name:"website",icon:HttpIcon,isLink:true}
 ]
 
@@ -77,6 +79,12 @@ export interface ContactInfoProps {
     /**
      * URL of the user's personal website
      * If excluded, no website link will be shown.
+     * Will be rendered as a link.
+     */
+    linkedin?: string,
+    /**
+     * URL of the user's LinkedIn account.
+     * If excluded, no LinkedIn link will be shown.
      * Will be rendered as a link.
      */
     website?: string,
